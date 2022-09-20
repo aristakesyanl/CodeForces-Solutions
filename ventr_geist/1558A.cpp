@@ -1,0 +1,67 @@
+#include <iostream>
+#include <cmath>
+#include <algorithm>
+#include <vector>
+#include <set>
+#include <unordered_set>
+#include <queue>
+#include <deque>
+#include <string>
+#include <sstream>
+#include <iomanip>
+#include <map>
+#include <unordered_map>
+#include <stack>
+#include <cstdio>
+#include <climits>
+#include <tuple>
+#include <ctime>
+#include <cstring>
+#include <numeric>
+#include <functional>
+#include <chrono>
+#include <cassert>
+#include <bitset>
+using namespace std;
+typedef long long ll;
+typedef pair<int, int> pa;
+const int inf = 2e9 + 100;
+const int mod = 1e9 + 7;
+const int N = 1e5 + 10;
+void solve() {
+	int a, b;
+	cin >> a >> b;
+	set<int>s;
+	int p = (a + b + 1) / 2;
+	int q = (a + b) / 2;
+	int cnt = 0;
+	for (int i = 0; i <= p; i++)
+	{
+		int y = a - (p - i);
+		if (y <= q && y >= 0) s.insert(i + y);
+	}
+
+	p = (a + b) / 2;
+	q = (a + b + 1) / 2;
+	for (int i = 0; i <= p; i++)
+	{
+		int y = a - (p - i);
+		if (y <= q && y >= 0) s.insert(i + y);
+	}
+	cout << s.size() << endl;
+	for (auto u : s) {
+		cout << u << " ";
+	}
+	cout << endl;
+}
+int main() {
+	cin.tie(0);
+	ios_base::sync_with_stdio(false);
+	int t;
+	cin >> t;
+	while (t--) {
+		solve();
+	}
+	//solve();
+	return 0;
+}
